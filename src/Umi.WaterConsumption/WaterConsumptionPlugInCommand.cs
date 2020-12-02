@@ -1,11 +1,12 @@
 ﻿using Rhino;
 using Rhino.Commands;
+using Umi.RhinoServices;
 using Umi.RhinoServices.Context;
 
 namespace Umi.WaterConsumption
 {
     [System.Runtime.InteropServices.Guid("127ce190-a06b-426b-a20d-51776d3582bc")]
-    public class WaterConsumptionPlugInCommand : Command
+    public class WaterConsumptionPlugInCommand : UmiCommand
     {
         public WaterConsumptionPlugInCommand()
         {
@@ -26,26 +27,8 @@ namespace Umi.WaterConsumption
             get { return "WaterConsumption"; }
         }
 
-        protected override Result RunCommand(RhinoDoc doc, RunMode mode)
+        public override Result Run(RhinoDoc doc, UmiContext context, RunMode mode)
         {
-            var context = UmiContext.Current;
-            if (context == null)
-            {
-                RhinoApp.WriteLine("No Umi project.!!!");
-                return Result.Failure;
-            }
-
-            //foreach (var b in context.Buildings.Visible)
-            //{
-            //    var occupancy = b.Occupancy;
-
-            //    if (occupancy.HasValue)
-            //    {
-            //        var pop = occupancy * 246;
-            //        RhinoApp.WriteLine("occupancy" + pop);
-            //        //rhinowriteline vla
-            //    }
-            //}
             WaterConsumptionPlugIn.VM.ScriptInvoked(doc, context);
 
             return Result.Success;

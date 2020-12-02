@@ -57,47 +57,5 @@ namespace Umi.WaterConsumption
                 return Tuple.Create(Properties.Resources.water_plugin_icon_png, ImageFormat.Png);
             }
         }
-        // You can override methods here to change the plug-in behavior on
-        // loading and shut down, add options pages to the Rhino _Option command
-        // and maintain plug-in wide options in a document.
-
-        //private void SaveSettings()
-        //{
-        //    var context = UmiContext.Current;
-        //    if (context == null)
-        //        return;
-
-        //    var json = JsonConvert.SerializeObject(WaterSettings);
-
-        //    context.AuxiliaryFiles.StoreText("waterConsumptionSettings.json", json);
-        //}
-
-        //private void LoadSettings(UmiContext context)
-        //{
-        //    var path = context.AuxiliaryFiles.GetFullPath("waterConsumptionSettings.json");
-
-        //    var json = File.ReadAllText(path);
-
-        //    WaterSettings = JsonConvert.DeserializeObject<WaterSettings>(json);
-        //}
-        //protected override LoadReturnCode OnLoad(ref string errorMessage)
-        //{
-        //    RhinoDoc.EndSaveDocument += RhinoDoc_EndSaveDocument;
-        //    UmiEventSource.Instance.ProjectOpened += Instance_ProjectOpened;
-
-        //    return base.OnLoad(ref errorMessage);
-        //}
-
-        //private void Instance_ProjectOpened(object sender, UmiContext e)
-        //{
-        //    LoadSettings(e);
-        //}
-
-        //private void RhinoDoc_EndSaveDocument(object sender, DocumentSaveEventArgs e)
-        //{
-        //    SaveSettings();
-        //}
-
-        //public override PlugInLoadTime LoadTime => PlugInLoadTime.AtStartup;
     }
 }

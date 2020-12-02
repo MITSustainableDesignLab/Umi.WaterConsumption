@@ -111,7 +111,7 @@ namespace Umi.WaterConsumption.ViewModels
                 var boundaryCurve = Doc.Objects.FindId(rGroup.GroupId); // Get the boundary curve RhinoObject
 
                 // For buildings, we only take visible buildings from the current context
-                var buildingsInsideGroup = UmiContext.Current.Buildings.Visible.Where(x => x.Geometry.Intersects((Curve)boundaryCurve.Geometry, Doc.ModelAbsoluteTolerance));
+                var buildingsInsideGroup = Context.Buildings.Visible.Where(x => x.Geometry.Intersects((Curve)boundaryCurve.Geometry, Doc.ModelAbsoluteTolerance));
                 
                 // Fpr vegetation and water, we use the UmiSite extensions.
                 var treesInsideGroup = Doc.UmiSite().IrrigatedLand().Where(x => x.Geometry.Intersects((Curve)boundaryCurve.Geometry, Doc.ModelAbsoluteTolerance));
@@ -150,7 +150,7 @@ namespace Umi.WaterConsumption.ViewModels
                 }
 
                 // Compute building floor area
-                var buildingsOnLayer = UmiContext.Current.Buildings.Visible.Where(x => g.ObjectsIds.Contains(x.Id)).ToArray();
+                var buildingsOnLayer = Context.Buildings.Visible.Where(x => g.ObjectsIds.Contains(x.Id)).ToArray();
                 if (buildingsOnLayer.Any())
                 {
                     var buildingArea = AreaMassProperties.Compute(buildingsOnLayer.Select(x => x.Geometry)).Area;
@@ -204,7 +204,7 @@ namespace Umi.WaterConsumption.ViewModels
         {
             foreach (var g in Groups)
             {
-                var buildingsToColor = UmiContext.Current.Buildings.Visible.Where(x => g.ObjectsIds.Contains(x.Id));
+                var buildingsToColor = Context.Buildings.Visible.Where(x => g.ObjectsIds.Contains(x.Id));
                 foreach (var rObj in buildingsToColor)
                 {
                     var rhinoObject = Doc.Objects.FindId(rObj.Id);
