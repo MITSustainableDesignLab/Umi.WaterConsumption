@@ -114,7 +114,7 @@ namespace Umi.WaterConsumption.ViewModels
                 var buildingsInsideGroup = UmiContext.Current.Buildings.Visible.Where(x => x.Geometry.Intersects((Curve)boundaryCurve.Geometry, Doc.ModelAbsoluteTolerance));
                 
                 // Fpr vegetation and water, we use the UmiSite extensions.
-                var treesInsideGroup = Doc.UmiSite().Trees().Where(x => x.Geometry.Intersects((Curve)boundaryCurve.Geometry, Doc.ModelAbsoluteTolerance));
+                var treesInsideGroup = Doc.UmiSite().IrrigatedLand().Where(x => x.Geometry.Intersects((Curve)boundaryCurve.Geometry, Doc.ModelAbsoluteTolerance));
                 var waterInsideGroup = Doc.UmiSite().WaterBodies().Where(x => x.Geometry.Intersects((Curve)boundaryCurve.Geometry, Doc.ModelAbsoluteTolerance));
 
                 // Objects Guids are added to the rGroup
@@ -134,11 +134,11 @@ namespace Umi.WaterConsumption.ViewModels
                 g.Results = new Dictionary<string, double>();
 
                 // Compute area for vegetation
-                var treesOnLayer = Doc.UmiSite().Trees().Where(x => g.ObjectsIds.Contains(x.Id)).ToArray();
+                var treesOnLayer = Doc.UmiSite().IrrigatedLand().Where(x => g.ObjectsIds.Contains(x.Id)).ToArray();
                 if (treesOnLayer.Any())
                 {
                     var treeArea = AreaMassProperties.Compute(treesOnLayer.Select(x => x.Geometry)).Area;
-                    g.Results.Add(UmiLayers.LayerPaths.Trees, treeArea);
+                    g.Results.Add(UmiLayers.LayerPaths.IrrigatedLand, treeArea);
                 }
 
                 // Compute area for water bodies

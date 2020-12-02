@@ -39,7 +39,7 @@ namespace Umi.WaterConsumption.Models
 
         public void SetGroupValues()
         {
-            if (Results.TryGetValue(UmiLayers.LayerPaths.Trees, out double vegetation))
+            if (Results.TryGetValue(UmiLayers.LayerPaths.IrrigatedLand, out double vegetation))
                 Vegetation = vegetation;
 
             if (Results.TryGetValue(UmiLayers.LayerPaths.SiteBoundary, out double land))
