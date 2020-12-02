@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="WaterConsumption.Installer" Language="1033" Version="!(bind.fileVersion.WaterRhp)" Manufacturer="SDL" UpgradeCode="e235ad88-e963-4caf-b01e-72048659721e">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Platform="x64"/>
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+    <Directory Id='TARGETDIR' Name='SourceDir'>
+      <Directory Id='UmiRoot' Name='umi'>
+        <Directory Id='DefaultLibrariesDir' Name='DefaultLibraries' />
+      </Directory>
+    </Directory>
+    <SetDirectory Id="UmiRoot" Value="[WindowsVolume]UMI" />
+
+		<Feature Id="WaterFeature" Title="WaterConsumption" Level="1">
+      <ComponentGroupRef Id="WaterComponents"/>
+    </Feature>
+	</Product>
+
+  <?define BuildRoot = "$(var.SolutionDir)..\bin\net462\" ?>
+
+  <Fragment>
+    <ComponentGroup Id='WaterComponents' Directory='UmiRoot'>
+      <Component Id='WaterConsumptionPluginComponent' Guid='936EFE61-9991-4AAD-8E84-9D3F74BC75E7' Win64='yes'>
+        <File Id='WaterRhp' Source='$(var.BuildRoot)Umi.WaterConsumption.rhp' KeyPath='yes'></File>
+        <RegistryKey Root='HKLM' Key='Software\McNeel\Rhinoceros\6.0\Plug-ins\240F1F7A-1E79-43EF-B809-DB225CBA361D'>
+          <RegistryValue Type='string' Name='Name' Value='Umi Water Consumption' />
+          <RegistryValue Type='string' Name='FileName' Value='[#WaterRhp]' />
+        </RegistryKey>
+      </Component>
+      <Component Id="LiveChartsDLL" Guid="{13DE637C-BC0C-40D9-B428-E9E6F4BD2F52}">
+        <RegistryKey Root="HKLM" Key="Software\McNeel\Rhinoceros\6.0\Plug-ins">
+          <RegistryValue Name="LiveChartsDLL" Value="1" KeyPath="yes" Type="integer" />
+        </RegistryKey>
+        <File Id="LiveChartsDLL" Name="LiveCharts.dll" Source="$(var.BuildRoot)LiveCharts.dll" />
+      </Component>
+
+      <Component Id="LiveChartsWpfDLL" Guid="{A87122EC-EB95-4F6C-985A-254962FFF106}">
+        <RegistryKey Root="HKLM" Key="Software\McNeel\Rhinoceros\6.0\Plug-ins">
+          <RegistryValue Name="LiveChartsDLL" Value="1" KeyPath="yes" Type="integer" />
+        </RegistryKey>
+        <File Id="LiveChartsWpfDLL" Name="LiveCharts.Wpf.dll"
+              Source="$(var.BuildRoot)LiveCharts.Wpf.dll" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

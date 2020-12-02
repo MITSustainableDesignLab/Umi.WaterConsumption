@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WaterConsumption.Installer", "WaterConsumption.Installer\WaterConsumption.Installer.wixproj", "{7620DE3F-7C21-46F9-9967-822FC239FBBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7620DE3F-7C21-46F9-9967-822FC239FBBD}.Debug|x86.ActiveCfg = Debug|x86
+		{7620DE3F-7C21-46F9-9967-822FC239FBBD}.Debug|x86.Build.0 = Debug|x86
+		{7620DE3F-7C21-46F9-9967-822FC239FBBD}.Release|x86.ActiveCfg = Release|x86
+		{7620DE3F-7C21-46F9-9967-822FC239FBBD}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4730FAF7-CDBC-40AE-97DF-0544824A6D20}
+	EndGlobalSection
+EndGlobal
