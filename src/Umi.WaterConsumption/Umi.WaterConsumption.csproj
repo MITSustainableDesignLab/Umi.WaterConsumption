@@ -80,12 +80,10 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.XML" />
     <Reference Include="Umi.Core">
-      <HintPath>..\..\..\..\UMI\Umi.Core.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\Umi\bin\net462\Umi.Core.dll</HintPath>
     </Reference>
     <Reference Include="Umi.Rhino">
-      <HintPath>..\..\..\..\UMI\Umi.Rhino.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\Umi\bin\net462\Umi.Rhino.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
