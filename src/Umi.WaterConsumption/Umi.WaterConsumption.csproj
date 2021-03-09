@@ -81,9 +81,11 @@
     <Reference Include="System.XML" />
     <Reference Include="Umi.Core">
       <HintPath>..\..\..\Umi\bin\net462\Umi.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Umi.Rhino">
       <HintPath>..\..\..\Umi\bin\net462\Umi.Rhino.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
