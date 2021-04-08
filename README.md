@@ -1,5 +1,7 @@
 # Umi.WaterConsumption
 
+In order to help local planning agencies to develop a holistic supply strategy for energy and water in both existing and new neighborhoods, this water modeling plug-in for MIT’s Urban Modeling Interface (UMI) predicts residential water consumption for both indoor and outside use. Model inputs are building massing and programmatic use along with site vegetation areas and pool sizes, when applicable. These inputs are auto-generated through a combination of GIS parcel data, along with remotely sensed outdoor areas from satellites, and local weather station readings. The model follows a mixed physically-based/statistics-based approach for outdoor and indoor water use, respectively. Results for water use and associated carbon emissions are presented and compared to measurements for the case of Almurooj neighborhood in Riyadh.
+
 ## Building the plugin
 
 ### Requirements
